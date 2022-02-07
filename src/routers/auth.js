@@ -1,7 +1,8 @@
 import { Router } from "express";
-import { firstController } from "../controllers/auth.controller.js";
+import { createUserHandler } from "../controllers/auth.controller.js";
 const auth = Router();
 
-auth.get("/", firstController);
+
+auth.post("/create", createUserHandler);
 
 export default auth;

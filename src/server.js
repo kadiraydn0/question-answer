@@ -6,19 +6,19 @@ import connect from "./helpers/connect.js";
 
 // Environment Variables
 dotenv.config({
-    path: "src/config/env/config.env"
+    path: "src/config/config.env"
 });
-
 
 const PORT = process.env.PORT;
 const NODE_ENV = process.env.NODE_ENV;
 
 
-app.listen(PORT,async () => {
+app.use(express.json());
+
+app.listen(PORT, async() => {
     // DB Connection    
     await connect();
-    
+
     app.use("/api", router)
     console.log(`App started on ${PORT} : ${NODE_ENV}`);
 })
-
